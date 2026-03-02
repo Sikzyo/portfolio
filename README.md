@@ -6,6 +6,7 @@ Portfolio profesional desarrollado con [Astro](https://astro.build).
 
 - **Framework:** Astro 5.x
 - **Package Manager:** Bun
+- **Estilos:** Tailwind CSS 4.x
 
 ## Comandos
 
