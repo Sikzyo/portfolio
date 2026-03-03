@@ -1,5 +1,6 @@
-import { useStore } from "@nanostores/preact";
+import { useStore } from "@nanostores/react";
 import { isMenuOpen, toggleMenu } from "@stores/uiStore";
+import { HamburgerMenuIcon, Cross2Icon } from "@radix-ui/react-icons";
 
 export default function HamburgerButton() {
   const $isMenuOpen = useStore(isMenuOpen);
@@ -7,28 +8,25 @@ export default function HamburgerButton() {
   return (
     <button
       onClick={toggleMenu}
-      class="relative z-50 p-2 md:hidden"
+      className="bg-orange-2/75 text-orange-9 backdrop-blur-8 relative z-50 flex min-h-11 min-w-11 items-center justify-center rounded-lg md:hidden"
       aria-label={$isMenuOpen ? "Cerrar menú" : "Abrir menú"}
       aria-expanded={$isMenuOpen}
       aria-controls="mobile-nav"
       type="button"
     >
-      <span class="sr-only">Menú</span>
-      <svg
-        class="stroke-orange-9 h-6 w-6 transition-transform duration-300"
-        fill="none"
-        stroke-width="2"
-        stroke-linecap="round"
-      >
-        <path
-          d="M4 6h16M4 12h16M4 18h16"
-          class={`hamburger-icon transition-opacity duration-300 ${$isMenuOpen ? "opacity-0" : "opacity-100"}`}
+      <span className="sr-only">Menú</span>
+      <div className="text-orange-9 relative h-4 w-4">
+        <HamburgerMenuIcon
+          className={`absolute inset-0 transition-all duration-300 ${
+            $isMenuOpen ? "scale-50 opacity-0" : "scale-100 opacity-100"
+          }`}
         />
-        <path
-          d="M6 6l12 12M6 18L18 6"
-          class={`close-icon transition-opacity duration-300 ${$isMenuOpen ? "opacity-100" : "opacity-0"}`}
+        <Cross2Icon
+          className={`absolute inset-0 transition-all duration-300 ${
+            $isMenuOpen ? "scale-100 opacity-100" : "scale-50 opacity-0"
+          }`}
         />
-      </svg>
+      </div>
     </button>
   );
 }
