@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/manrope": "^5.2.8",
+    "@fontsource-variable/sora": "^5.2.8",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^5.17.1",
     "prettier": "^3.8.1",

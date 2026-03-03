@@ -1,19 +1,27 @@
 ---
 import "@styles/global.css";
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/sora";
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
+    <!-- TODO SEO: Agregar canonical URL -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <!-- TODO SEO: Agregar Open Graph tags (og:title, og:description, og:image, og:url) -->
+    <!-- TODO SEO: Agregar Twitter Cards -->
+    <!-- TODO SEO: Agregar JSON-LD (Schema.org) para portfolio -->
+    <!-- TODO SEO: Agregar theme-color para móvil -->
+    <!-- TODO SEO: Agregar format-detection -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="font-sora">
     <slot />
   </body>
 </html>
@@ -30,6 +38,5 @@ const { title, description } = Astro.props;
     margin: 0;
     width: 100%;
     min-height: 100vh;
-    font-family: system-ui, sans-serif;
   }
 </style>
