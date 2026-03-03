@@ -7,14 +7,14 @@ const { links } = Astro.props;
 ---
 
 <nav
-  class="hidden md:flex md:items-center md:gap-8"
+  class="bg-orange-2/75 backdrop-blur-8 hidden rounded-xl md:flex md:items-center md:gap-4 md:p-2"
   aria-label="Navegación principal"
 >
   {
     links.map((link) => (
       <a
         href={link.href}
-        class="text-orange-9 hover:text-orange-7 font-medium transition-colors"
+        class="font-manrope text-orange-9 min-h-11 min-w-11 rounded-lg px-4 py-2 text-base font-bold"
       >
         {link.label}
       </a>
