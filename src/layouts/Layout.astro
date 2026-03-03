@@ -2,7 +2,15 @@
 import "@styles/global.css";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/sora";
+import Header from "@components/layout/Header.astro";
+
 const { title, description } = Astro.props;
+
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/sobre-mi", label: "Sobre mí" },
+  { href: "/hoja-de-vida", label: "Hoja de vida" },
+];
 ---
 
 <!doctype html>
@@ -21,7 +29,10 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="font-sora">
+  <body
+    class="font-sora from-orange-1 to-blue-3 flex min-h-screen flex-col items-center gap-8 bg-linear-to-b p-6 md:gap-10 md:p-8"
+  >
+    <Header links={links} />
     <slot />
   </body>
 </html>
