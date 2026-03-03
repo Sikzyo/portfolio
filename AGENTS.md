@@ -113,6 +113,7 @@ const { title } = Astro.props;
 
 ### File Naming
 
+- **Language**: All file names must be in English (PascalCase for components, kebab-case for pages/utils)
 - Components: PascalCase (`Header.astro`)
 - Utils: camelCase (`formatDate.ts`)
 - Styles: kebab-case (`global.css`)
