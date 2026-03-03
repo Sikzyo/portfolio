@@ -1,0 +1,23 @@
+---
+interface Props {
+  links: { href: string; label: string }[];
+}
+
+const { links } = Astro.props;
+---
+
+<nav
+  class="hidden md:flex md:items-center md:gap-8"
+  aria-label="Navegación principal"
+>
+  {
+    links.map((link) => (
+      <a
+        href={link.href}
+        class="text-orange-9 hover:text-orange-7 font-medium transition-colors"
+      >
+        {link.label}
+      </a>
+    ))
+  }
+</nav>

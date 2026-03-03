@@ -1,0 +1,30 @@
+---
+import Logo from "@assets/svg/logo.svg";
+import NavbarDesktop from "./NavbarDesktop.astro";
+import NavbarMobile from "./NavbarMobile";
+import HamburgerButton from "@components/ui/HamburgerButton";
+
+interface Props {
+  links: { href: string; label: string }[];
+}
+
+const { links } = Astro.props;
+---
+
+<header
+  class="fixed z-30 flex w-full items-center justify-between px-6 md:px-8"
+>
+  <a
+    href="/"
+    class="bg-orange-2/75 flex items-center gap-2 rounded-lg px-4 py-2 text-xl font-semibold transition-transform duration-300 hover:scale-105 md:px-6 md:py-3"
+    aria-label="Inicio"
+  >
+    <Logo class="fill-orange-9 h-5 md:h-7" />
+  </a>
+
+  <NavbarDesktop links={links} />
+
+  <HamburgerButton client:load />
+</header>
+
+<NavbarMobile client:load links={links} />
