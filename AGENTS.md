@@ -229,6 +229,51 @@ interface Props {
 - Run `bunx prettier --write .` before committing
 - Verify build passes before pushing
 
+### Conventional Commits
+
+#### Formato
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+#### Types permitidos
+
+| Type       | Descripción           |
+| ---------- | --------------------- |
+| `feat`     | Nueva funcionalidad   |
+| `fix`      | Bug fix               |
+| `docs`     | Documentación         |
+| `style`    | Formato (no lógica)   |
+| `refactor` | Refactorización       |
+| `perf`     | Mejora de performance |
+| `test`     | Tests                 |
+| `build`    | Build system          |
+| `ci`       | CI/CD                 |
+| `chore`    | Mantenimiento         |
+
+#### Reglas
+
+- Usar `!` antes del `:` para breaking changes: `feat!: remove API`
+- Scope opcional: `feat(auth): add login`
+- Descripción en imperativo: "add" no "added"
+- Cuerpo y footer opcionales
+- Footer para breaking changes: `BREAKING CHANGE: description`
+
+#### Ejemplos
+
+```
+feat: add view transitions
+fix: resolve header alignment issue
+docs: update README
+refactor: simplify button component
+feat(auth)!: change login API
+```
+
 ---
 
 ## Non-Goals
