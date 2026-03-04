@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { links } = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
 
 <nav
@@ -11,13 +12,21 @@ const { links } = Astro.props;
   aria-label="Navegación principal"
 >
   {
-    links.map((link) => (
-      <a
-        href={link.href}
-        class="font-manrope text-orange-9 min-h-11 min-w-11 rounded-lg px-4 py-2 text-base font-bold"
-      >
-        {link.label}
-      </a>
-    ))
+    links.map((link) => {
+      const isActive = currentPath === link.href;
+      return (
+        <a
+          href={link.href}
+          class:list={[
+            "font-manrope min-h-11 min-w-11 rounded-lg px-4 py-2 text-base font-bold transition-colors",
+            isActive
+              ? "bg-orange-9 text-orange-2"
+              : "text-orange-9 hover:bg-orange-3",
+          ]}
+        >
+          {link.label}
+        </a>
+      );
+    })
   }
 </nav>
