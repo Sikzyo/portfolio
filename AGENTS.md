@@ -111,19 +111,42 @@ const { title } = Astro.props;
 }
 ```
 
-### File Naming
+#### Tailwind Class Usage Rules
 
-- **Language**: All file names must be in English (PascalCase for components, kebab-case for pages/utils)
-- Components: PascalCase (`Header.astro`)
-- Utils: camelCase (`formatDate.ts`)
-- Styles: kebab-case (`global.css`)
-- Pages: kebab-case (`about.astro`, `index.astro`)
+- **Arbitrary values are forbidden**: Do not use the `[value]` syntax (e.g. `w-[347px]`, `text-[#ff0000]`, `mt-[13px]`). If the value does not exist as a standard Tailwind class, first try to approximate it using an existing scale value.
+- **Always use the standard Tailwind scale**: Spacing (`p-4`, `m-8`), typography (`text-sm`, `text-xl`), colors (`bg-blue-500`), sizes (`w-full`, `w-1/2`, `max-w-lg`).
+- **If the value does not exist in the standard scale**: Define it as a token in `@theme` inside `src/styles/global.css` and use it as a semantic class. Never write the value directly in the template.
 
-### HTML Conventions
+```css
+/* ✅ Correct: define the value as a token */
+@theme {
+  --spacing-18: 4.5rem;
+  --color-brand: #1a56db;
+}
+```
 
-- Self-closing tags for void elements
-- Prefer shorthand attributes (`disabled` not `disabled={true}`)
-- Group related Tailwind classes
+```html
+<!-- ✅ Correct: use standard scale classes -->
+<div class="mt-4 max-w-xl px-6 text-lg text-blue-600">...</div>
+
+<!-- ✅ Correct: use semantic token defined in @theme -->
+<div class="text-brand mt-18">...</div>
+
+<!-- ❌ Forbidden: inline arbitrary values -->
+<div class="mt-[18px] w-[347px] text-[#1a56db]">...</div>
+```
+
+- **Validate that the class exists**: Before using a class, verify it is part of the official Tailwind v4 API. Do not invent or combine utilities that do not exist (e.g. `text-bold`, `bg-transparent-50`).
+- **Official reference**: Check [tailwindcss.com/docs](https://tailwindcss.com/docs) to confirm the existence and correct name of each class.
+- **Conditional classes**: Use the `clsx` library or native template literals. Never build class names dynamically by concatenating partial strings (e.g. `"text-" + color`), as Tailwind cannot detect them at build time.
+
+```html
+<!-- ❌ Forbidden: undetectable dynamic class -->
+<div class={`text-${color}-500`}>...</div>
+
+<!-- ✅ Correct: full conditional class -->
+<div class={isActive ? "text-blue-500" : "text-gray-400"}>...</div>
+```
 
 ---
 
