@@ -1,0 +1,51 @@
+---
+import LinkedInIcon from "../../assets/svg/linkedin.svg";
+import GitHubIcon from "../../assets/svg/github.svg";
+import XIcon from "../../assets/svg/x.svg";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="flex w-full flex-col items-center gap-4 md:items-start">
+  <section>
+    <p class="text-base font-medium md:text-xl">
+      ¿Te gusta lo que ves? Hablemos
+    </p>
+  </section>
+
+  <section class="flex justify-center gap-4 md:items-center">
+    <a
+      class="min-h-11 min-w-11 transition-transform duration-300 hover:scale-110"
+      href="https://linkedin.com/in/tu-perfil"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn"
+    >
+      <LinkedInIcon class="size-6" />
+    </a>
+    <a
+      class="min-h-11 min-w-11 transition-transform duration-300 hover:scale-110"
+      href="https://twitter.com/tu-usuario"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="X (Twitter)"
+    >
+      <XIcon class="size-6" />
+    </a>
+    <a
+      class="min-h-11 min-w-11 transition-transform duration-300 hover:scale-110"
+      href="https://github.com/tu-usuario"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+    >
+      <GitHubIcon class="size-6" />
+    </a>
+  </section>
+
+  <section class="flex w-full justify-between">
+    <p class="text-xs font-light md:text-sm">© Sikzyo {currentYear}</p>
+    <p class="text-xs font-light md:text-sm">Hecho con 🧡</p>
+    <p class="text-xs font-light md:text-sm">Bogotá, Colombia</p>
+  </section>
+</footer>
