@@ -4,6 +4,7 @@ import "@fontsource-variable/manrope";
 import "@fontsource-variable/sora";
 import { ClientRouter } from "astro:transitions";
 import Header from "@components/layout/Header.astro";
+import Footer from "@components/layout/Footer.astro";
 
 const { title, description } = Astro.props;
 
@@ -30,6 +31,7 @@ const links = [
   >
     <Header links={links} />
     <slot />
+    <Footer />
   </body>
 </html>
 
