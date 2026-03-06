@@ -23,7 +23,7 @@ export default function NavbarMobile({ links }: Props) {
       role="dialog"
       aria-label="Menú de navegación"
       aria-modal="true"
-      aria-hidden={!$isMenuOpen}
+      inert={!$isMenuOpen}
     >
       <ul className="flex flex-col gap-4" role="list">
         {links.map((link) => (
