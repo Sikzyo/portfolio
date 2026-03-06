@@ -1,5 +1,14 @@
 ---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/projects/ProjectCard.astro";
+
+const allProjects = await getCollection("projects");
+const projects = allProjects.sort(
+  (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+    b.data.date.valueOf() - a.data.date.valueOf(),
+);
 ---
 
 <Layout>
@@ -9,15 +18,17 @@ import Layout from "../layouts/Layout.astro";
         >Jair Ochoa</strong
       >!
     </h1>
-    <p class="font-light md:text-2xl">
+    <p class="font-light md:text-xl lg:text-2xl">
       Diseñador y desarrollador web enfocado en crear soluciones digitales
       efectivas, centradas en la experiencia del usuario.
     </p>
-    <aside class="flex gap-2 font-light md:text-2xl">
+    <aside class="flex gap-2 font-light md:text-xl lg:text-2xl">
       <h2>Actualmente:</h2>
       <p class="text-orange-9 font-medium">Freelance</p>
     </aside>
   </section>
 
-  <section></section>
+  <section class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </section>
 </Layout>
