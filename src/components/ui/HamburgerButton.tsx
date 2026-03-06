@@ -8,7 +8,7 @@ export default function HamburgerButton() {
   return (
     <button
       onClick={toggleMenu}
-      className="bg-orange-2/75 text-orange-9 backdrop-blur-8 relative z-10 flex min-h-11 min-w-11 items-center justify-center rounded-lg md:hidden"
+      className="bg-orange-2/75 text-orange-9 relative z-10 flex min-h-11 min-w-11 items-center justify-center rounded-lg backdrop-blur-sm md:hidden"
       aria-label={$isMenuOpen ? "Cerrar menú" : "Abrir menú"}
       aria-expanded={$isMenuOpen}
       aria-controls="mobile-nav"
