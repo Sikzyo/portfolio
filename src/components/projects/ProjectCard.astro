@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, description, image, date } = project.data;
+---
+
+<a href={`/projects/${project.slug}`} class="group flex flex-col gap-4">
+  <Image
+    src={image}
+    alt={title}
+    width={600}
+    height={400}
+    class="aspect-3/2 w-full rounded-2xl object-cover transition-transform duration-300 group-hover:scale-105"
+  />
+  <article class="flex flex-col gap-2">
+    <header class="flex justify-between">
+      <h3 class="font-manrope text-xl font-semibold md:text-2xl">{title}</h3>
+      <time
+        datetime={date.getFullYear().toString()}
+        class="bg-orange-2/75 text-orange-9 flex rounded-lg px-2 py-1 text-center text-xs font-medium backdrop-blur-sm md:text-sm"
+        >{date.getFullYear()}</time
+      >
+    </header>
+    <p class="text-sm font-light md:text-base">{description}</p>
+  </article>
+</a>
