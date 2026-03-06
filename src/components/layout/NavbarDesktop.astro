@@ -8,7 +8,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav
-  class="bg-orange-2/75 backdrop-blur-8 hidden rounded-xl md:flex md:items-center md:gap-4 md:p-2"
+  class="bg-orange-2/75 hidden rounded-xl backdrop-blur-sm md:flex md:items-center md:gap-4 md:p-2"
   aria-label="Navegación principal"
 >
   {
@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname;
         <a
           href={link.href}
           class:list={[
-            "font-manrope min-h-11 min-w-11 rounded-lg px-4 py-2 text-base font-bold transition-colors",
+            "font-manrope min-h-11 min-w-11 rounded-lg px-4 py-2 text-center text-base font-bold transition-colors",
             isActive
               ? "bg-orange-9 text-orange-2"
               : "text-orange-9 hover:bg-orange-3",
