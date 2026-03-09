@@ -1,10 +1,75 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import profileImg from "../assets/about/profile.webp";
+import universityImg from "../assets/about/university.webp";
 ---
 
 <Layout
   title="Sobre mí"
   description="Conoce más sobre mí y mi trayectoria profesional"
 >
-  <h1>Sobre mí</h1>
+  <section class="flex flex-col gap-6 md:flex-row-reverse">
+    <figure class="w-full shrink-0 md:w-72 lg:w-90">
+      <Image
+        src={profileImg}
+        alt="Foto de perfil"
+        width={800}
+        height={600}
+        class="w-full rounded-2xl"
+      />
+    </figure>
+    <article
+      class="flex flex-1 flex-col items-center gap-6 font-light md:items-start md:gap-8 md:text-xl lg:text-2xl"
+    >
+      <h2
+        class="font-manrope text-orange-9 md:text-xl-title text-4xl font-bold lg:text-5xl"
+      >
+        Jair Ochoa
+      </h2>
+      <div class="flex flex-col gap-4">
+        <p>
+          Hola, ¡Mucho gusto! Mi nombre es Jair Ochoa, diseñador y desarrollador
+          graduado en Diseño Interactivo de la universidad Jorge Tadeo Lozano.
+        </p>
+        <p>
+          Me especializo en planificar, diseñar y ejecutar proyectos de
+          desarrollo web y móvil que resuelven problemáticas específicas. Mi
+          enfoque se centra en entender las necesidades de las personas y,
+          mediante diversas metodologías, generar soluciones funcionales que
+          conecten con ellas.
+        </p>
+      </div>
+    </article>
+  </section>
+  <section class="flex flex-col gap-4">
+    <h3
+      class="font-manrope text-orange-9 md:text-subtitle text-2xl font-bold lg:text-4xl"
+    >
+      Educación
+    </h3>
+    <div class="flex flex-col gap-4 md:flex-row">
+      <figure class="flex flex-col gap-2 md:w-1/2">
+        <Image
+          src={universityImg}
+          alt="Plaza principal"
+          width={800}
+          height={600}
+          class="w-full rounded-2xl"
+        />
+        <figcaption
+          class="bg-orange-2/75 text-orange-9 flex w-fit rounded-lg px-2 py-1 text-center text-xs font-medium backdrop-blur-sm md:text-sm"
+        >
+          Biblioteca
+        </figcaption>
+      </figure>
+      <article class="flex flex-col gap-2 pt-6 md:w-1/2">
+        <p class="font-manrope md:text-subtitle text-2xl font-bold lg:text-3xl">
+          Universidad Jorge Tadeo Lozano
+        </p>
+        <p class="font-medium md:text-xl">Facultad de artes y diseño</p>
+        <p class="font-light md:text-xl">Diseñador interactivo</p>
+      </article>
+    </div>
+  </section>
 </Layout>
