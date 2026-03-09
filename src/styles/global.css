@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --font-manrope: "Manrope Variable", sans-serif;
@@ -9,4 +10,7 @@
   --color-orange-9: #f76b15;
 
   --color-blue-3: #e6f4fe;
+
+  --text-xl-title: 2.5rem;
+  --text-subtitle: 2rem;
 }
