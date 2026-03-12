@@ -10,7 +10,7 @@ const { project } = Astro.props;
 const { title, description, image, date } = project.data;
 ---
 
-<a href={`/projects/${project.slug}`} class="group flex flex-col gap-4">
+<a href={`/projects/${project.id}`} class="group flex flex-col gap-4">
   <Image
     src={image}
     alt={title}
