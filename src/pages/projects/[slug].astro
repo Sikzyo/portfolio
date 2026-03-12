@@ -1,0 +1,89 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+import DemoButton from "@components/ui/DemoButton.astro";
+import RepoButton from "@components/ui/RepoButton.astro";
+
+export async function getStaticPaths() {
+  const projects: CollectionEntry<"projects">[] =
+    await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+const { title, description, image, role, time, team, github, live } =
+  project.data;
+---
+
+<Layout title={title} description={description}>
+  <article class="flex flex-col gap-4 md:flex-row-reverse">
+    <figure
+      class="aspect-3/2 shrink-0 overflow-hidden rounded-2xl transition-transform duration-300 hover:scale-105 md:w-80 lg:w-137.5"
+    >
+      <Image
+        src={image}
+        alt={title}
+        width={600}
+        height={400}
+        class="h-full w-full object-cover"
+      />
+    </figure>
+    <div class="flex w-full flex-col gap-4 md:gap-6 lg:gap-8">
+      <div class="flex flex-col gap-2 md:gap-4 lg:gap-6">
+        <h1
+          class="font-manrope text-orange-9 md:text-xl-title text-3xl font-bold xl:text-5xl"
+        >
+          {title}
+        </h1>
+        <p class="text-2xl font-light md:text-3xl">{description}</p>
+      </div>
+      <div class="grid grid-cols-3 gap-2">
+        <div class="flex flex-col gap-2">
+          <span
+            class="font-manrope text-orange-9 text-sm font-bold md:text-base"
+            >Rol</span
+          >
+          <div class="flex flex-col gap-1">
+            {role.map((r) => <span class="font-light md:text-xl">{r}</span>)}
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <span
+            class="font-manrope text-orange-9 text-sm font-bold md:text-base"
+            >Tiempo</span
+          >
+          <span class="font-light md:text-xl">{time}</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <span
+            class="font-manrope text-orange-9 text-sm font-bold md:text-base"
+            >Equipo</span
+          >
+          <div class="flex flex-col gap-1">
+            {team.map((t) => <span class="font-light md:text-xl">{t}</span>)}
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        {live && <DemoButton href={live}>Ver demo</DemoButton>}
+        {github && <RepoButton href={github}>GitHub</RepoButton>}
+      </div>
+    </div>
+  </article>
+  <div
+    class="prose prose-headings:text-2xl prose-headings:text-orange-9 prose-headings:font-manrope prose-headings:font-bold prose-headings:mb-2 md:prose-headings:text-3xl prose-p:m-0 prose-p:font-light md:prose-p:text-xl lg:prose-p:text-2xl prose-a:text-blue-11 prose-a:font-light md:prose-a:text-xl lg:prose-a:text-2xl prose-hr:my-4 prose-hr:border-transparent md:prose-hr:my-5 prose-img:my-4 prose-img:w-full prose-img:rounded-lg md:prose-img:rounded-2xl prose-img:aspect-3/2 prose-img:object-cover max-w-none"
+  >
+    <Content />
+  </div>
+</Layout>
