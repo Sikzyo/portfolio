@@ -1,0 +1,19 @@
+---
+import { RocketIcon } from "@radix-ui/react-icons";
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="bg-orange-9 text-orange-2 flex items-center gap-2 rounded-lg p-2 md:text-lg transition-transform duration-300 hover:scale-105"
+>
+  <RocketIcon className="w-5 h-5" />
+  <slot />
+</a>

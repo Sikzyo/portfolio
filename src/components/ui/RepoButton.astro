@@ -1,0 +1,19 @@
+---
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="flex items-center gap-2 rounded-lg bg-black p-2 text-white transition-transform duration-300 hover:scale-105 md:text-lg"
+>
+  <GitHubLogoIcon className="h-5 w-5" />
+  <slot />
+</a>
