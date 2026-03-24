@@ -1,7 +1,7 @@
 ---
 title: "Weather app"
 description: "Aplicación del clima abierta, gratuita y disponible para todas las plataformas"
-image: "/src/assets/weather-app/cover.webp"
+image: "./../../assets/weather-app/cover.webp"
 date: "2026-03"
 github: "https://github.com/Sikzyo/weather-app"
 role: ["Diseñador", "Desarrollador"]
@@ -37,7 +37,7 @@ El contenido se estructura en dos pantallas:
 - Ciudades — búsqueda y gestión de ciudades guardadas.
 - Detalle — información meteorológica completa de la ciudad seleccionada.
 
-![Mockup](/src/assets/weather-app/mobile.webp)
+![Mockup](./../../assets/weather-app/mobile.webp)
 
 ---
 
