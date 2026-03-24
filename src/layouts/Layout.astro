@@ -5,6 +5,7 @@ import "@fontsource-variable/sora";
 import { ClientRouter } from "astro:transitions";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
+import Analytics from "@vercel/analytics/astro";
 
 const { title, description } = Astro.props;
 
@@ -34,6 +35,7 @@ const links = [
       <slot />
     </main>
     <Footer />
+    <Analytics />
   </body>
 </html>
 
@@ -49,5 +51,9 @@ const links = [
     margin: 0;
     width: 100%;
     min-height: 100vh;
+  }
+
+  vercel-analytics {
+    display: contents;
   }
 </style>
