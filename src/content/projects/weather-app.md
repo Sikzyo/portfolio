@@ -4,6 +4,7 @@ description: "Aplicación del clima abierta, gratuita y disponible para todas la
 image: "./../../assets/weather-app/cover.webp"
 date: "2026-03"
 github: "https://github.com/Sikzyo/weather-app"
+live: "https://weather-app.zyo.workers.dev"
 role: ["Diseñador", "Desarrollador"]
 time: "En desarrollo"
 team: ["Jair Ochoa"]
@@ -43,4 +44,10 @@ El contenido se estructura en dos pantallas:
 
 # Desarrollo
 
-La aplicación se esta implementando como una web app con [React](https://react.dev), apoyada en [Vite](https://vite.dev), [Zod](https://zod.dev), [React Router](https://reactrouter.com/home) y [React Query](https://tanstack.com/query/latest). Estas herramientas representan el estándar actual del ecosistema React y permitieron construir una base sólida y escalable.
+La aplicación se esta implementando como una web app con [React](https://react.dev), apoyada en [Vite](https://vite.dev), [Zod](https://zod.dev), [React Router](https://reactrouter.com/home), [React Query](https://tanstack.com/query/latest) y [Zustand](https://zustand-demo.pmnd.rs). Estas herramientas representan el estándar actual del ecosistema React y permitieron construir una base sólida y escalable.
+
+---
+
+# Conclusiones
+
+Es posible construir una aplicación del clima de calidad, abierta y gratuita, sin sacrificar experiencia de usuario. Como próximos pasos, se planea llevar la aplicación a plataformas nativas, tanto móvil como escritorio.
