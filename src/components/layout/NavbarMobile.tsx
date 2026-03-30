@@ -30,6 +30,8 @@ export default function NavbarMobile({ links }: Props) {
           <li key={link.href}>
             <a
               href={link.href}
+              target={link.href === "/cv.pdf" ? "_blank" : undefined}
+              rel={link.href === "/cv.pdf" ? "noopener noreferrer" : undefined}
               onClick={handleLinkClick}
               className="text-orange-9 font-manrope flex min-h-11 items-center text-2xl font-bold"
             >

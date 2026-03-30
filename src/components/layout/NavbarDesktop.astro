@@ -17,6 +17,8 @@ const currentPath = Astro.url.pathname;
       return (
         <a
           href={link.href}
+          target={link.href === "/cv.pdf" ? "_blank" : undefined}
+          rel={link.href === "/cv.pdf" ? "noopener noreferrer" : undefined}
           class:list={[
             "font-manrope min-h-11 min-w-11 rounded-lg px-4 py-2 text-center text-base font-bold transition-colors",
             isActive
