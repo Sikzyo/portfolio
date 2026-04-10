@@ -9,10 +9,13 @@ import RepoButton from "@components/ui/RepoButton.astro";
 export async function getStaticPaths() {
   const projects: CollectionEntry<"projects">[] =
     await getCollection("projects");
-  return projects.map((project) => ({
-    params: { slug: project.id },
-    props: { project },
-  }));
+  
+  return projects
+    .filter((project) => project.data.status !== "in-progress")
+    .map((project) => ({
+      params: { slug: project.id },
+      props: { project },
+    }));
 }
 
 interface Props {
