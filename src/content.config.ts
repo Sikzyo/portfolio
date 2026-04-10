@@ -19,6 +19,7 @@ const projectsCollection = defineCollection({
       role: z.array(z.string()),
       time: z.string(),
       team: z.array(z.string()),
+      status: z.enum(["completed", "in-progress"]).default("completed"),
     }),
 });
 
