@@ -1,0 +1,32 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { LinkBreak2Icon } from "@radix-ui/react-icons";
+---
+
+<Layout
+  title="Página no encontrada"
+  description="La página que buscas no existe o ha sido movida."
+>
+  <article
+    class="flex grow flex-col items-center justify-center gap-8 text-center lg:flex-row-reverse lg:gap-20"
+  >
+    <LinkBreak2Icon className="text-orange-9 h-20 w-20 md:h-25 md:w-25" />
+
+    <div class="flex flex-col items-center gap-8">
+      <header class="flex flex-col gap-4">
+        <h1 class="font-manrope text-2xl font-bold md:text-4xl">
+          Algo salió mal...
+        </h1>
+        <p class="font-light text-balance md:text-2xl">
+          Lo sentimos, la página que estás buscando no existe, ha sido movida.
+        </p>
+      </header>
+      <a
+        href="/"
+        class="bg-orange-9 text-orange-1 rounded-lg px-4 py-2 font-normal transition-transform duration-300 hover:scale-105"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </article>
+</Layout>
