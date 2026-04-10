@@ -7,10 +7,12 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, description, image, date } = project.data;
+const { title, description, image, date, status } = project.data;
+
+const href = status === "in-progress" ? "/under-construction" : `/projects/${project.id}`;
 ---
 
-<a href={`/projects/${project.id}`} class="group flex flex-col gap-4">
+<a href={href} class="group flex flex-col gap-4">
   <Image
     src={image}
     alt={title}
